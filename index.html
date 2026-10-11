@@ -1,0 +1,780 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sterling English</title>
+<meta name="description" content="Sterling English — частная школа английского языка в Москве и онлайн. Индивидуальные занятия с Ольгой Черновой: 25 лет преподавания, сертификаты Cambridge English, подготовка к ЕГЭ, ОГЭ, YLE, A2 Key, B2 First, TOEFL.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/hero.jpg">
+<style>
+:root{
+  --ink:#141d1a;
+  --forest:#1d3730;
+  --forest-2:#24443b;
+  --ivory:#f6f1e9;
+  --paper:#ece4d6;
+  --brass:#b08d57;
+  --brass-light:#d4b98a;
+  --text:#24231f;
+  --muted:#6d685e;
+  --line:rgba(36,35,31,.14);
+  --line-light:rgba(246,241,233,.18);
+  --serif:"Cormorant Garamond", "Times New Roman", serif;
+  --sans:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ease:cubic-bezier(.22,.61,.15,1);
+  --gutter:clamp(16px, 5vw, 72px);
+  --max:1320px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{margin:0;color-scheme:light;background:var(--ivory);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.7;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--brass);color:var(--ivory)}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.eyebrow{font-family:var(--sans);font-size:12px;letter-spacing:.28em;text-transform:uppercase;font-weight:500;color:var(--brass);display:inline-flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:36px;height:1px;background:currentColor}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.05;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(40px,5.6vw,80px)}
+h2 em,h1 em{font-style:italic;color:var(--brass)}
+.lead{font-size:clamp(18px,1.5vw,21px);line-height:1.65;color:var(--muted);font-weight:300}
+section{position:relative}
+
+/* buttons */
+.btn{position:relative;display:inline-flex;align-items:center;gap:14px;padding:19px 34px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;border:1px solid currentColor;overflow:hidden;isolation:isolate;transition:color .6s var(--ease),border-color .6s var(--ease)}
+.btn::before{content:"";position:absolute;inset:0;background:var(--brass);transform:translateY(101%);transition:transform .6s var(--ease);z-index:-1}
+.btn:hover::before{transform:translateY(0)}
+.btn:hover{color:var(--ivory);border-color:var(--brass)}
+.btn .arr{transition:transform .6s var(--ease)}
+.btn:hover .arr{transform:translateX(6px)}
+.btn--solid{background:var(--brass);border-color:var(--brass);color:var(--ivory)}
+.btn--solid::before{background:var(--ivory)}
+.btn--solid:hover{color:var(--ink);border-color:var(--ivory)}
+.link{position:relative;display:inline-block;font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;padding-bottom:6px}
+.link::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform-origin:right;transition:transform .6s var(--ease)}
+.link:hover::after{transform:scaleX(0)}
+
+/* ---------- header ---------- */
+.header{position:fixed;inset:0 0 auto;z-index:50;padding-top:env(safe-area-inset-top,0px);color:var(--ivory);transition:background .6s var(--ease),color .6s var(--ease),transform .6s var(--ease),box-shadow .6s var(--ease)}
+.header__in{display:flex;align-items:center;justify-content:space-between;gap:24px;height:92px;transition:height .6s var(--ease)}
+.header.is-solid{background:rgba(246,241,233,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--text);box-shadow:0 1px 0 var(--line)}
+.header.is-solid .header__in{height:72px}
+.header.is-hidden{transform:translateY(-100%)}
+.logo{display:flex;flex-direction:column;line-height:1}
+.logo b{font-family:var(--serif);font-weight:500;font-style:italic;font-size:30px;letter-spacing:.01em}
+.logo small{font-size:9.5px;letter-spacing:.42em;text-transform:uppercase;margin-top:4px;opacity:.75}
+.nav{display:flex;gap:clamp(18px,2.4vw,40px);font-size:13px;letter-spacing:.08em}
+.nav a{position:relative;padding:6px 0;opacity:.88;transition:opacity .3s}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.nav a:hover{opacity:1}
+.nav a:hover::after,.nav a.is-active::after{transform:scaleX(1)}
+.header .btn{padding:13px 22px;font-size:11.5px}
+.burger{display:none;width:44px;height:44px;position:relative}
+.burger span{position:absolute;left:10px;right:10px;height:1px;background:currentColor;transition:transform .5s var(--ease),opacity .3s}
+.burger span:nth-child(1){top:17px}.burger span:nth-child(2){top:26px}
+.menu-open .burger span:nth-child(1){transform:translateY(4.5px) rotate(45deg)}
+.menu-open .burger span:nth-child(2){transform:translateY(-4.5px) rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;z-index:40;background:var(--ink);color:var(--ivory);display:flex;flex-direction:column;justify-content:center;padding:100px var(--gutter) 40px;clip-path:inset(0 0 100% 0);transition:clip-path .8s var(--ease);visibility:hidden}
+.menu-open .mobile-menu{clip-path:inset(0 0 0 0);visibility:visible}
+.mobile-menu a{font-family:var(--serif);font-size:clamp(34px,9vw,52px);line-height:1.25;opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.menu-open .mobile-menu a{opacity:1;transform:none}
+.mobile-menu a:nth-child(2){transition-delay:.05s}.mobile-menu a:nth-child(3){transition-delay:.1s}.mobile-menu a:nth-child(4){transition-delay:.15s}.mobile-menu a:nth-child(5){transition-delay:.2s}.mobile-menu a:nth-child(6){transition-delay:.25s}
+.mobile-menu .mm-foot{margin-top:40px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass-light)}
+.menu-open .header{color:var(--ivory);background:transparent;box-shadow:none;backdrop-filter:none}
+
+/* ---------- hero ---------- */
+.hero{min-height:100vh;min-height:100svh;color:var(--ivory);overflow:hidden;display:flex;align-items:flex-end;background:var(--ink)}
+.hero__media{position:absolute;inset:-6% 0 0;will-change:transform}
+.hero__media img{width:100%;height:100%;object-fit:cover;transform:scale(1.18);animation:heroZoom 2.8s var(--ease) forwards;filter:saturate(.85)}
+@keyframes heroZoom{to{transform:scale(1.04)}}
+.hero::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(14,20,18,.55) 0%,rgba(14,20,18,.15) 35%,rgba(14,20,18,.55) 70%,rgba(14,20,18,.9) 100%),
+  linear-gradient(90deg,rgba(14,20,18,.6) 0%,rgba(14,20,18,0) 65%)}
+.hero__content{position:relative;z-index:2;width:100%;padding-top:110px;padding-bottom:clamp(36px,7vh,96px)}
+.hero h1{font-size:clamp(44px,min(8vw,9.6vh),124px);font-weight:300;line-height:.98;max-width:12ch;margin:clamp(14px,2.4vh,26px) 0 clamp(18px,3vh,30px)}
+.hero h1 em{color:var(--brass-light)}
+.hero .lead{color:rgba(246,241,233,.82);max-width:540px}
+.hero__cta{display:flex;flex-wrap:wrap;align-items:center;gap:24px 36px;margin-top:clamp(24px,4.5vh,42px)}
+.hero__cta .link{color:var(--ivory)}
+.hero__meta{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:clamp(28px,5vw,80px);margin-top:clamp(28px,7vh,88px);padding-top:clamp(18px,3vh,28px);border-top:1px solid var(--line-light)}
+.hero__meta div{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,241,233,.7)}
+.hero__meta b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(30px,3vw,44px);letter-spacing:0;text-transform:none;color:var(--ivory);line-height:1.1;margin-bottom:4px}
+.scroll-cue{position:absolute;right:var(--gutter);bottom:clamp(40px,8vh,96px);z-index:2;writing-mode:vertical-rl;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(246,241,233,.7);display:flex;align-items:center;gap:16px}
+.scroll-cue::after{content:"";width:1px;height:72px;background:linear-gradient(var(--brass-light),transparent);animation:cue 2.4s var(--ease) infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}50.1%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* line reveal */
+.split .ln{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.split .ln>span{display:block;transform:translateY(105%);transition:transform 1.3s var(--ease)}
+.is-loaded .split .ln>span,.split.in .ln>span{transform:none}
+.split .ln:nth-child(2)>span{transition-delay:.12s}.split .ln:nth-child(3)>span{transition-delay:.24s}
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity 1.2s var(--ease),transform 1.2s var(--ease)}
+.is-loaded .hero .fade-up{opacity:1;transform:none}
+.hero .d1{transition-delay:.5s}.hero .d2{transition-delay:.7s}.hero .d3{transition-delay:.9s}
+
+/* scroll reveal */
+.rv.in{animation:rvIn 1.2s var(--ease) both}
+@keyframes rvIn{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+.rv-d1.in{animation-delay:.1s}.rv-d2.in{animation-delay:.2s}.rv-d3.in{animation-delay:.3s}
+.img-rv.in{animation:imgIn 1.6s var(--ease) both}
+.img-rv.in img{animation:imgZoom 1.8s var(--ease) both}
+@keyframes imgIn{from{clip-path:inset(12% 12% 12% 12%)}to{clip-path:inset(0 0 0 0)}}
+@keyframes imgZoom{from{transform:scale(1.25)}to{transform:scale(1)}}
+
+/* ---------- manifesto ---------- */
+.manifesto{padding:clamp(100px,14vw,200px) 0 clamp(80px,10vw,140px);text-align:center}
+.manifesto .eyebrow{justify-content:center}
+.manifesto .eyebrow::after{content:"";width:36px;height:1px;background:currentColor}
+.manifesto blockquote{margin:36px auto 0;max-width:1000px;font-family:var(--serif);font-weight:300;font-size:clamp(30px,3.9vw,58px);line-height:1.2}
+.manifesto blockquote em{color:var(--brass)}
+.manifesto .word{opacity:.14;transition:opacity .5s linear}
+.manifesto .word.on{opacity:1}
+.manifesto p.lead{max-width:620px;margin:40px auto 0}
+
+/* ---------- about ---------- */
+.about{padding:clamp(60px,8vw,120px) 0 clamp(100px,12vw,180px)}
+.about__grid{display:grid;grid-template-columns:5fr 6fr;gap:clamp(48px,8vw,140px);align-items:start}
+.portrait{position:relative;max-width:460px;isolation:isolate}
+.portrait__frame{position:relative;aspect-ratio:3/4;border-radius:240px 240px 0 0;overflow:hidden;background:var(--paper)}
+.portrait__frame img{width:100%;height:100%;object-fit:cover;object-position:center 18%;filter:sepia(.12) saturate(.9) contrast(1.02)}
+.portrait::before{content:"";position:absolute;inset:-18px 18px 18px -18px;border:1px solid var(--brass);border-radius:240px 240px 0 0;z-index:-1}
+.portrait__tag{position:absolute;right:-28px;bottom:48px;background:var(--forest);color:var(--ivory);padding:22px 26px;max-width:220px;font-size:13px;line-height:1.5}
+.portrait__tag b{display:block;font-family:var(--serif);font-weight:400;font-size:40px;line-height:1;color:var(--brass-light);margin-bottom:6px}
+.about h2{margin:22px 0 34px}
+.about__text p{margin:0 0 20px}
+.about__text .intro{font-family:var(--serif);font-size:clamp(23px,2vw,28px);line-height:1.45;color:var(--text)}
+.facts{list-style:none;padding:0;margin:44px 0 0;border-top:1px solid var(--line)}
+.facts li{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--line)}
+.facts span{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);padding-top:4px}
+.facts p{margin:0;font-size:16px}
+.facts p small{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+.signature{font-family:var(--serif);font-style:italic;font-size:34px;color:var(--forest);margin-top:36px}
+
+/* ---------- stats band ---------- */
+.band{background:var(--forest);color:var(--ivory);padding:clamp(70px,8vw,110px) 0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat{padding-left:28px;border-left:1px solid var(--line-light)}
+.stat b{display:block;font-family:var(--serif);font-weight:300;font-size:clamp(52px,6vw,92px);line-height:1;color:var(--brass-light)}
+.stat span{display:block;margin-top:14px;font-size:14px;color:rgba(246,241,233,.72);max-width:200px}
+
+/* ---------- programs ---------- */
+.programs{padding:clamp(100px,12vw,180px) 0}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:clamp(50px,6vw,90px)}
+.sec-head h2{margin-top:22px}
+.prog{border-top:1px solid var(--line)}
+.prog__item{position:relative;isolation:isolate;display:grid;grid-template-columns:90px 1.1fr 1.2fr 40px;gap:28px;align-items:start;padding:38px 0;border-bottom:1px solid var(--line);cursor:default}
+.prog__item::before{content:"";position:absolute;inset:0;background:var(--paper);transform:scaleY(0);transform-origin:bottom;transition:transform .7s var(--ease);z-index:-1}
+.prog__item:hover::before{transform:scaleY(1)}
+.prog__n{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--brass);padding-top:8px;padding-left:4px}
+.prog__item h3{font-size:clamp(30px,2.8vw,42px);transition:transform .7s var(--ease)}
+.prog__item:hover h3{transform:translateX(12px)}
+.prog__item h3 small{display:block;font-family:var(--sans);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+.prog__item p{margin:6px 0 0;color:var(--muted)}
+.prog__arr{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;margin-top:6px;transition:background .5s var(--ease),border-color .5s,color .5s,transform .7s var(--ease);color:var(--brass)}
+.prog__item:hover .prog__arr{background:var(--brass);border-color:var(--brass);color:var(--ivory);transform:rotate(-45deg)}
+
+/* ---------- approach ---------- */
+.approach{background:var(--ink);color:var(--ivory);padding:clamp(100px,12vw,180px) 0;overflow:hidden}
+.approach .lead{color:rgba(246,241,233,.68)}
+.approach__grid{display:grid;grid-template-columns:5fr 6fr;gap:clamp(48px,7vw,120px);align-items:start}
+.approach__img{position:sticky;top:110px;aspect-ratio:4/5;overflow:hidden}
+.approach__img img{width:100%;height:120%;object-fit:cover;filter:saturate(.7) brightness(.85)}
+.approach h2{margin:22px 0 28px}
+.steps{list-style:none;padding:0;margin:56px 0 0;counter-reset:s}
+.steps li{position:relative;padding:34px 0 34px 86px;border-top:1px solid var(--line-light)}
+.steps li:last-child{border-bottom:1px solid var(--line-light)}
+.steps li::before{counter-increment:s;content:"0" counter(s);position:absolute;left:0;top:34px;font-family:var(--serif);font-style:italic;font-size:24px;color:var(--brass-light)}
+.steps h3{font-size:clamp(26px,2.3vw,34px);margin-bottom:10px}
+.steps p{margin:0;color:rgba(246,241,233,.68);font-size:16px}
+
+/* ---------- credentials ---------- */
+.creds{padding:clamp(100px,12vw,180px) 0;background:var(--paper)}
+.creds__grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(24px,3vw,48px);align-items:start}
+.creds__intro h2{margin:22px 0 26px;font-size:clamp(40px,4.4vw,64px)}
+.cert{display:block;text-align:left;width:100%}
+.cert__img{background:var(--ivory);padding:18px;box-shadow:0 30px 60px -30px rgba(20,29,26,.35);transition:transform .8s var(--ease),box-shadow .8s var(--ease)}
+.cert__img img{aspect-ratio:3/4;object-fit:cover;object-position:top;width:100%}
+.cert:hover .cert__img{transform:translateY(-10px);box-shadow:0 46px 70px -34px rgba(20,29,26,.45)}
+.cert__cap{margin-top:22px;display:flex;justify-content:space-between;gap:16px;align-items:baseline;border-top:1px solid var(--line);padding-top:16px}
+.cert__cap b{font-family:var(--serif);font-weight:500;font-size:22px}
+.cert__cap span{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass)}
+.cert:nth-child(3){margin-top:clamp(0px,8vw,120px)}
+
+.lightbox{position:fixed;inset:0;z-index:100;background:rgba(14,20,18,.92);display:grid;place-items:center;padding:24px;opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility .5s}
+.lightbox.open{opacity:1;visibility:visible}
+.lightbox img{max-height:90vh;width:auto;transform:scale(.94);transition:transform .7s var(--ease)}
+.lightbox.open img{transform:none}
+.lightbox button{position:absolute;top:20px;right:24px;color:var(--ivory);font-size:13px;letter-spacing:.18em;text-transform:uppercase}
+
+/* ---------- testimonials ---------- */
+.reviews{padding:clamp(100px,12vw,180px) 0}
+.reviews__head{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-bottom:clamp(40px,5vw,72px)}
+.rating{display:flex;align-items:center;gap:20px}
+.rating b{font-family:var(--serif);font-weight:300;font-size:72px;line-height:1;color:var(--forest)}
+.rating small{display:block;font-size:13px;color:var(--muted);line-height:1.5}
+.stars{color:var(--brass);letter-spacing:4px;font-size:15px}
+.slider{position:relative;display:grid}
+.slide{grid-area:1/1;opacity:0;visibility:hidden;transition:opacity 1s var(--ease),visibility 1s}
+.slide.active{opacity:1;visibility:visible}
+.slide blockquote{margin:0;font-family:var(--serif);font-weight:300;font-size:clamp(26px,3vw,44px);line-height:1.3;max-width:1080px}
+.slide blockquote::before{content:"“";display:block;font-size:1.9em;line-height:.6;color:var(--brass);height:.45em}
+.slide .who{margin-top:34px;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+.slide .who span{color:var(--muted);margin-left:10px}
+.slider__nav{display:flex;align-items:center;gap:28px;margin-top:56px}
+.slider__nav button{width:56px;height:56px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;transition:background .5s var(--ease),color .5s,border-color .5s}
+.slider__nav button:hover{background:var(--forest);color:var(--ivory);border-color:var(--forest)}
+.slider__count{font-family:var(--serif);font-size:22px;font-style:italic;min-width:70px}
+.slider__bar{flex:1;height:1px;background:var(--line);position:relative;max-width:360px}
+.slider__bar i{position:absolute;inset:0;background:var(--brass);transform-origin:left;transform:scaleX(0)}
+.slider__bar i.run{animation:bar 8s linear forwards}
+@keyframes bar{to{transform:scaleX(1)}}
+.reviews__src{margin-top:40px;font-size:14px;color:var(--muted)}
+.reviews__src a{color:var(--forest);border-bottom:1px solid var(--brass)}
+
+/* ---------- pricing ---------- */
+.pricing{padding:clamp(100px,12vw,180px) 0;background:var(--ivory);border-top:1px solid var(--line)}
+.pricing__grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(48px,7vw,120px)}
+.pricing h2{margin:22px 0 26px}
+.formats{margin-top:44px;display:grid;gap:14px}
+.format{display:flex;gap:18px;align-items:flex-start;padding:22px 24px;background:var(--paper)}
+.format svg{flex:none;color:var(--brass);margin-top:3px}
+.format b{display:block;font-weight:600;font-size:15px;margin-bottom:2px}
+.format p{margin:0;font-size:14.5px;color:var(--muted);line-height:1.55}
+.prices{list-style:none;padding:0;margin:0}
+.prices li{display:flex;align-items:baseline;gap:16px;padding:24px 0;border-bottom:1px solid var(--line)}
+.prices li:first-child{border-top:1px solid var(--line)}
+.prices .nm{font-family:var(--serif);font-size:clamp(23px,2.1vw,30px);line-height:1.2}
+.prices .nm small{display:block;font-family:var(--sans);font-size:13px;color:var(--muted);margin-top:4px}
+.prices .dots{flex:1;border-bottom:1px dotted rgba(36,35,31,.3);transform:translateY(-6px);min-width:20px}
+.prices .pr{font-family:var(--serif);font-size:clamp(23px,2.1vw,30px);white-space:nowrap}
+.prices .pr small{font-family:var(--sans);font-size:13px;color:var(--muted)}
+.prices-note{margin-top:22px;font-size:14px;color:var(--muted)}
+
+/* ---------- FAQ ---------- */
+.faq{padding:0 0 clamp(100px,12vw,180px)}
+.faq__grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(48px,7vw,120px)}
+.faq h2{margin-top:22px;font-size:clamp(40px,4.4vw,64px)}
+.acc{border-top:1px solid var(--line)}
+.acc__item{border-bottom:1px solid var(--line)}
+.acc__q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:28px 0;text-align:left;font-family:var(--serif);font-size:clamp(22px,2vw,28px);line-height:1.25}
+.acc__q i{flex:none;position:relative;width:18px;height:18px}
+.acc__q i::before,.acc__q i::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--brass);transition:transform .5s var(--ease)}
+.acc__q i::after{transform:rotate(90deg)}
+.acc__item.open .acc__q i::after{transform:rotate(0)}
+.acc__a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s var(--ease)}
+.acc__item.open .acc__a{grid-template-rows:1fr}
+.acc__a>div{overflow:hidden}
+.acc__a p{margin:0 0 28px;color:var(--muted);max-width:640px}
+
+/* ---------- contact ---------- */
+.contact{background:var(--forest);color:var(--ivory);padding:clamp(100px,12vw,170px) 0;overflow:hidden}
+.contact::before{content:"S";position:absolute;right:-4vw;bottom:-18vw;font-family:var(--serif);font-style:italic;font-size:62vw;line-height:1;color:rgba(246,241,233,.035);pointer-events:none}
+.contact__grid{position:relative;display:grid;grid-template-columns:6fr 5fr;gap:clamp(48px,7vw,120px);align-items:start}
+.contact h2{margin:22px 0 28px;font-size:clamp(44px,6vw,92px)}
+.contact h2 em{color:var(--brass-light)}
+.contact .lead{color:rgba(246,241,233,.72);max-width:520px}
+.contact__links{margin-top:48px;display:grid;gap:4px}
+.contact__links a{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 0;border-bottom:1px solid var(--line-light);font-family:var(--serif);font-size:clamp(22px,2vw,28px);transition:color .4s,padding .6s var(--ease)}
+.contact__links a span{font-family:var(--sans);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,241,233,.55)}
+.contact__links a:hover{color:var(--brass-light);padding-left:12px}
+.form{background:var(--ivory);color:var(--text);padding:clamp(30px,4vw,56px)}
+.form h3{font-size:34px;margin-bottom:8px}
+.form>p{margin:0 0 26px;color:var(--muted);font-size:15px}
+.field{position:relative;margin-bottom:22px}
+.field input,.field select,.field textarea{width:100%;font:inherit;font-size:16px;color:var(--text);background:transparent;border:0;border-bottom:1px solid var(--line);padding:24px 0 10px;border-radius:0;outline:none;transition:border-color .4s;-webkit-appearance:none;appearance:none}
+.field textarea{resize:vertical;min-height:84px}
+.field label{position:absolute;left:0;top:22px;font-size:15px;color:var(--muted);pointer-events:none;transition:transform .4s var(--ease),font-size .4s,color .4s;transform-origin:left}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--brass)}
+.field input:focus+label,.field input:not(:placeholder-shown)+label,.field textarea:focus+label,.field textarea:not(:placeholder-shown)+label,.field select+label{transform:translateY(-20px);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
+.field select{background-image:linear-gradient(45deg,transparent 50%,var(--brass) 50%),linear-gradient(135deg,var(--brass) 50%,transparent 50%);background-position:calc(100% - 12px) 30px,calc(100% - 7px) 30px;background-size:5px 5px;background-repeat:no-repeat;cursor:pointer}
+.form .btn{width:100%;justify-content:center;margin-top:10px}
+.form small{display:block;margin-top:16px;font-size:12.5px;color:var(--muted);line-height:1.5}
+.form__ok{display:none;padding:12px 0 0;color:var(--forest);font-size:15px}
+.form.sent .form__ok{display:block}
+
+/* ---------- footer ---------- */
+.footer{background:var(--ink);color:rgba(246,241,233,.6);padding:56px 0 40px;font-size:13.5px}
+.footer__in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:28px;align-items:center}
+.footer .logo{color:var(--ivory)}
+.footer nav{display:flex;flex-wrap:wrap;gap:24px}
+.footer nav a:hover{color:var(--ivory)}
+.footer__bottom{margin-top:40px;padding-top:24px;border-top:1px solid var(--line-light);display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
+.to-top{color:var(--brass-light)}
+
+/* ---------- responsive ---------- */
+@media (max-height:720px) and (min-width:721px){.hero__meta{display:none}.scroll-cue{display:none}}
+@media (max-width:1080px){
+  .nav,.header .btn{display:none}
+  .burger{display:block}
+  .about__grid,.approach__grid,.pricing__grid,.faq__grid,.contact__grid,.sec-head{grid-template-columns:1fr}
+  .portrait{margin:0 auto 20px;max-width:400px}
+  .approach__img{position:relative;top:0;aspect-ratio:16/10}
+  .creds__grid{grid-template-columns:1fr 1fr}
+  .creds__intro{grid-column:1/-1}
+  .cert:nth-child(3){margin-top:0}
+  .stats{grid-template-columns:1fr 1fr;row-gap:48px}
+}
+@media (max-width:720px){
+  body{font-size:16px}
+  .header__in{height:72px}
+  .hero{min-height:600px}
+  .hero .lead{font-size:16px}
+  .hero h1{font-size:clamp(40px,11.5vw,56px)}
+  .hero__meta{grid-template-columns:repeat(3,1fr);gap:16px}
+  .hero__meta div{font-size:10px;letter-spacing:.1em}
+  .scroll-cue{display:none}
+  .hero__cta .btn{width:100%;justify-content:center}
+  .portrait__tag{right:0;bottom:-24px;padding:16px 20px}
+  .portrait::before{inset:-12px 12px 12px -12px}
+  .facts li{grid-template-columns:1fr;gap:6px}
+  .prog__item{grid-template-columns:44px 1fr;gap:6px 14px;padding:30px 0}
+  .prog__item p{grid-column:2}
+  .prog__arr{display:none}
+  .steps li{padding-left:56px}
+  .creds__grid{grid-template-columns:1fr}
+  .stat{padding-left:18px}
+  .prices li{flex-wrap:wrap;gap:4px 12px}
+  .prices .dots{display:none}
+  .prices .pr{width:100%}
+  .slider__nav{gap:16px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
+  .manifesto .word{opacity:1}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="header" id="header">
+  <div class="wrap header__in">
+    <a href="#top" class="logo" aria-label="Sterling English — на главную"><b>Sterling</b><small>English Atelier</small></a>
+    <nav class="nav" aria-label="Основное меню">
+      <a href="#about">О преподавателе</a>
+      <a href="#programs">Программы</a>
+      <a href="#approach">Подход</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#pricing">Стоимость</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <a href="#contact" class="btn">Записаться</a>
+    <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">О преподавателе</a>
+  <a href="#programs">Программы</a>
+  <a href="#approach">Подход</a>
+  <a href="#reviews">Отзывы</a>
+  <a href="#pricing">Стоимость</a>
+  <a href="#contact">Контакты</a>
+  <div class="mm-foot">Москва · Онлайн</div>
+</div>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero__media" id="heroMedia"><img src="assets/hero.jpg" alt="Старинная библиотека с тёплым светом ламп"></div>
+  <div class="wrap hero__content">
+    <span class="eyebrow fade-up">Private English · Moscow &amp; Online</span>
+    <h1 class="split">
+      <span class="ln"><span>Английский,</span></span>
+      <span class="ln"><span>который звучит</span></span>
+      <span class="ln"><span><em>безупречно</em></span></span>
+    </h1>
+    <p class="lead fade-up d1">Индивидуальные занятия с Ольгой Черновой — лингвистом и&nbsp;преподавателем с&nbsp;25-летним опытом, обладательницей сертификатов Cambridge English.</p>
+    <div class="hero__cta fade-up d2">
+      <a href="#contact" class="btn btn--solid">Пробное занятие <span class="arr">→</span></a>
+      <a href="#about" class="link">Познакомиться</a>
+    </div>
+    <div class="hero__meta fade-up d3">
+      <div><b>25 лет</b>преподавания</div>
+      <div><b>4,90</b>рейтинг учеников</div>
+      <div><b>CAE</b>Cambridge English</div>
+    </div>
+  </div>
+  <div class="scroll-cue">Scroll</div>
+</section>
+
+<!-- ============ MANIFESTO ============ -->
+<section class="manifesto">
+  <div class="wrap">
+    <span class="eyebrow rv">Философия школы</span>
+    <blockquote id="manifesto">«A sour note» — это не «кислая нота», а&nbsp;фальшивая. Мы учим чувствовать язык так, как его <em>чувствуют носители</em>.</blockquote>
+    <p class="lead rv">Sterling — это не курсы и не конвейер. Это камерная школа одного преподавателя, где программа строится вокруг ваших целей, а&nbsp;каждое занятие — личный разговор.</p>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="wrap about__grid">
+    <div class="portrait rv">
+      <div class="portrait__frame img-rv"><img src="assets/olga.jpg" alt="Ольга Чернова, основатель и преподаватель Sterling English" loading="lazy"></div>
+      <div class="portrait__tag"><b>с 2001</b>преподаю английский детям, подросткам и&nbsp;взрослым</div>
+    </div>
+    <div class="about__text">
+      <span class="eyebrow rv">Основатель школы</span>
+      <h2 class="rv rv-d1">Ольга <em>Чернова</em></h2>
+      <p class="intro rv rv-d1">Лингвист, преподаватель английского и&nbsp;французского языков. Расширяю знания учеников исходя из их запросов, используя собственные методики.</p>
+      <p class="rv rv-d2">Параллельно с преподаванием работаю в IT-сфере — поэтому хорошо понимаю, каким английский нужен в&nbsp;работе: на переговорах, в&nbsp;переписке, в&nbsp;международной команде. Взрослым помогаю быстро выстроить грамматику и&nbsp;заговорить свободно, а&nbsp;по запросу учу красиво выражать мысли — с&nbsp;устойчивыми выражениями и&nbsp;живой лексикой.</p>
+      <ul class="facts">
+        <li class="rv"><span>Образование</span><p>МГОУ, Институт лингвистики и&nbsp;межкультурной коммуникации<small>Лингвист, преподаватель английского и&nbsp;французского языков · 1999–2004</small></p></li>
+        <li class="rv"><span>Cambridge</span><p>Обучение в Newnham Cambridge Centre<small>Курсы ВКС для подготовки к CELTA · сертификаты Cambridge English (CAE) 2015 и 2019</small></p></li>
+        <li class="rv"><span>Опыт</span><p>Корпоративные группы в компаниях Renault, «Технолига» и др.<small>Работала переводчиком и преподавателем курсов английского языка</small></p></li>
+      </ul>
+      <div class="signature rv">Olga Chernova</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="band">
+  <div class="wrap stats">
+    <div class="stat rv"><b data-count="25">0</b><span>лет преподавательской практики</span></div>
+    <div class="stat rv rv-d1"><b data-count="4.9" data-dec="2">0</b><span>средняя оценка по отзывам учеников</span></div>
+    <div class="stat rv rv-d2"><b data-count="11">0</b><span>лет на Профи.ру с&nbsp;проверенными документами</span></div>
+    <div class="stat rv rv-d3"><b data-count="9">0</b><span>программ — от YLE до TOEFL</span></div>
+  </div>
+</section>
+
+<!-- ============ PROGRAMS ============ -->
+<section class="programs" id="programs">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow rv">Программы</span><h2 class="rv rv-d1">Обучение под <em>вашу цель</em></h2></div>
+      <p class="lead rv rv-d2">Каждая программа — индивидуальная. Мы начинаем с диагностики и&nbsp;двигаемся к результату, который можно измерить: свободная речь, сданный экзамен, уверенность на работе.</p>
+    </div>
+    <div class="prog">
+      <div class="prog__item rv"><span class="prog__n">01</span><h3>English for Adults<small>Для взрослых</small></h3><p>Быстро выстроить грамматику и&nbsp;использовать язык в&nbsp;работе, путешествиях и&nbsp;переписке. Акцент на разговорной речи и&nbsp;аудировании.</p><span class="prog__arr">→</span></div>
+      <div class="prog__item rv"><span class="prog__n">02</span><h3>Eloquent English<small>Выразительная речь</small></h3><p>Для тех, кто уже говорит, но хочет звучать естественно и&nbsp;изящно: устойчивые выражения, идиомы, collocations, стилистика.</p><span class="prog__arr">→</span></div>
+      <div class="prog__item rv"><span class="prog__n">03</span><h3>ЕГЭ и ОГЭ<small>Для старшеклассников</small></h3><p>Системная подготовка к&nbsp;государственным экзаменам: все разделы, стратегии выполнения заданий, отработка устной части.</p><span class="prog__arr">→</span></div>
+      <div class="prog__item rv"><span class="prog__n">04</span><h3>Cambridge Young Learners<small>YLE · A2 Key</small></h3><p>Starters, Movers, Flyers и&nbsp;A2 Key — международные экзамены для детей и&nbsp;школьников, от начального до среднего уровня.</p><span class="prog__arr">→</span></div>
+      <div class="prog__item rv"><span class="prog__n">05</span><h3>International Exams<small>B2 First · TOEFL</small></h3><p>Подготовка к&nbsp;международным экзаменам для учёбы и&nbsp;карьеры за рубежом — с&nbsp;опытом преподавателя, который сам сдавал Cambridge.</p><span class="prog__arr">→</span></div>
+      <div class="prog__item rv"><span class="prog__n">06</span><h3>Олимпиады<small>Для сильных учеников</small></h3><p>Углублённая работа с&nbsp;лексикой, грамматикой и&nbsp;текстами повышенной сложности для участия в&nbsp;олимпиадах по английскому.</p><span class="prog__arr">→</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APPROACH ============ -->
+<section class="approach" id="approach">
+  <div class="wrap approach__grid">
+    <div class="approach__img img-rv"><img src="assets/study.jpg" alt="Раскрытые книги и конспект на столе" loading="lazy" id="parallaxImg"></div>
+    <div>
+      <span class="eyebrow rv">Подход</span>
+      <h2 class="rv rv-d1">Живой язык <em>вместо</em> зубрёжки</h2>
+      <p class="lead rv rv-d2">Современная методика, в&nbsp;которой много разговорной речи и&nbsp;аудирования. Занятия энергичные и&nbsp;разнообразные: книги, методические пособия, аутентичные аудиоматериалы.</p>
+      <ol class="steps">
+        <li class="rv"><h3>Знакомство и диагностика</h3><p>На пробном занятии определяем уровень, цели и&nbsp;сроки. Вы сразу понимаете, как будет устроено обучение.</p></li>
+        <li class="rv"><h3>Персональная программа</h3><p>Составляю план под ваш запрос — экзамен, работа, переезд, путешествия или школьная успеваемость.</p></li>
+        <li class="rv"><h3>Занятия 60–90 минут</h3><p>Интенсивный темп, разговорная практика с&nbsp;первого урока, комфортная атмосфера — внимание удерживается даже у&nbsp;самых юных учеников.</p></li>
+        <li class="rv"><h3>Измеримый результат</h3><p>Регулярно отслеживаем прогресс: от первых свободных фраз до сданного экзамена и&nbsp;уверенной речи.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CREDENTIALS ============ -->
+<section class="creds" id="creds">
+  <div class="wrap creds__grid">
+    <div class="creds__intro">
+      <span class="eyebrow rv">Квалификация</span>
+      <h2 class="rv rv-d1">Подтверждено <em>Кембриджем</em></h2>
+      <p class="lead rv rv-d2">Документы об образовании, опыте и&nbsp;сертификаты проверены сервисом Профи.ру. Регулярно подтверждаю свой уровень международными экзаменами Cambridge Assessment English.</p>
+    </div>
+    <button class="cert rv rv-d1" data-full="assets/cert-2015.jpg" aria-label="Открыть сертификат 2015 года">
+      <div class="cert__img"><img src="assets/cert-2015.jpg" alt="Сертификат Cambridge English, 2015" loading="lazy"></div>
+      <div class="cert__cap"><b>Cambridge English</b><span>2015</span></div>
+    </button>
+    <button class="cert rv rv-d2" data-full="assets/cert-2019.jpg" aria-label="Открыть сертификат 2019 года">
+      <div class="cert__img"><img src="assets/cert-2019.jpg" alt="Сертификат Cambridge Assessment English, 2019" loading="lazy"></div>
+      <div class="cert__cap"><b>Cambridge Assessment</b><span>2019</span></div>
+    </button>
+  </div>
+</section>
+<div class="lightbox" id="lightbox" aria-hidden="true"><button type="button">Закрыть ✕</button><img src="" alt="Сертификат"></div>
+
+<!-- ============ REVIEWS ============ -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="reviews__head">
+      <div><span class="eyebrow rv">Отзывы</span><h2 class="rv rv-d1" style="margin-top:22px">Слово <em>ученикам</em></h2></div>
+      <div class="rating rv rv-d2"><b>4,90</b><div><div class="stars">★★★★★</div><small>20 проверенных отзывов<br>на Профи.ру</small></div></div>
+    </div>
+    <div class="slider rv" id="slider">
+      <div class="slide active"><blockquote>Уроки проходят всегда в&nbsp;положительном настрое, в&nbsp;комфортной обстановке. Ребёнку нравится общение с&nbsp;педагогом, знания он получает в&nbsp;лёгкой, доступной форме — и&nbsp;это уже положительно отражается на успеваемости в&nbsp;школе.</blockquote><div class="who">Наталия <span>Английский язык</span></div></div>
+      <div class="slide"><blockquote>Преподаватель грамотный, ребёнку было комфортно заниматься. Мы считаем, что она внесла очень хороший вклад в&nbsp;результат. Её личные и&nbsp;профессиональные качества — на высоком уровне.</blockquote><div class="who">Елена <span>Подготовка к ЕГЭ</span></div></div>
+      <div class="slide"><blockquote>Она отзывчива, профессиональна, у&nbsp;неё есть стремление сделать всё как можно лучше. Методы преподавания очень современные — много разговорной речи, аудирование. Мой ребёнок начал разговаривать на английском.</blockquote><div class="who">Ольга <span>Английский язык</span></div></div>
+      <div class="slide"><blockquote>Ольга Александровна — позитивный и&nbsp;доброжелательный человек, легко находит общий язык с&nbsp;ребёнком. Дочь говорит, что занятия проходят необычно и&nbsp;интересно. Будем продолжать обучение.</blockquote><div class="who">Юлия <span>Английский язык</span></div></div>
+      <div class="slide"><blockquote>Уроки проходят продуктивно, педагог приносит разные книги, методические пособия, аудиоматериалы. Основной упор — на разговорный уровень. Оцениваю работу Ольги Александровны на «отлично».</blockquote><div class="who">Карина <span>Английский язык</span></div></div>
+    </div>
+    <div class="slider__nav rv">
+      <button type="button" id="prev" aria-label="Предыдущий отзыв">←</button>
+      <button type="button" id="next" aria-label="Следующий отзыв">→</button>
+      <span class="slider__count" id="count">01 / 05</span>
+      <div class="slider__bar"><i id="bar"></i></div>
+    </div>
+    <p class="reviews__src rv">Все отзывы проходят проверку на подлинность — <a href="https://profi.ru/profile/ChernovaOA/" target="_blank" rel="noopener">читать на Профи.ру</a></p>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="pricing" id="pricing">
+  <div class="wrap pricing__grid">
+    <div>
+      <span class="eyebrow rv">Форматы и стоимость</span>
+      <h2 class="rv rv-d1">Там, где <em>удобно</em> вам</h2>
+      <p class="lead rv rv-d2">Длительность занятия — 60–90 минут. Индивидуально, в&nbsp;удобное для вас время.</p>
+      <div class="formats">
+        <div class="format rv"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/></svg><div><b>Онлайн</b><p>Из любой точки мира — те же материалы и тот же темп.</p></div></div>
+        <div class="format rv rv-d1"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 11l8-6 8 6v9H4z"/><path d="M10 20v-5h4v5"/></svg><div><b>В кабинете преподавателя</b><p>Новокосино, Лухмановская.</p></div></div>
+        <div class="format rv rv-d2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div><b>Выезд к ученику</b><p>Таганская, Марксистская, Новогиреево, Новокосино, Лухмановская и другие районы.</p></div></div>
+      </div>
+    </div>
+    <div>
+      <ul class="prices">
+        <li class="rv"><span class="nm">Английский язык<small>для взрослых и детей, разговорный</small></span><span class="dots"></span><span class="pr">2 000 ₽ <small>/ 60 мин</small></span></li>
+        <li class="rv"><span class="nm">YLE · A2 Key<small>Starters, Movers, Flyers, A2 Key</small></span><span class="dots"></span><span class="pr">2 000 ₽ <small>/ 60 мин</small></span></li>
+        <li class="rv"><span class="nm">ЕГЭ · ОГЭ<small>подготовка к государственным экзаменам</small></span><span class="dots"></span><span class="pr">2 500 ₽ <small>/ 60 мин</small></span></li>
+        <li class="rv"><span class="nm">B2 First · TOEFL<small>международные экзамены</small></span><span class="dots"></span><span class="pr">2 500 ₽ <small>/ 60 мин</small></span></li>
+        <li class="rv"><span class="nm">Олимпиады<small>углублённая подготовка</small></span><span class="dots"></span><span class="pr">по запросу</span></li>
+      </ul>
+      <p class="prices-note rv">Первое занятие — знакомство и диагностика уровня. Стоимость и график обсуждаем индивидуально.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq" id="faq">
+  <div class="wrap faq__grid">
+    <div><span class="eyebrow rv">Вопросы</span><h2 class="rv rv-d1">Часто <em>спрашивают</em></h2></div>
+    <div class="acc rv">
+      <div class="acc__item open"><button class="acc__q" type="button">Как проходит первое занятие?<i></i></button><div class="acc__a"><div><p>Знакомимся, определяем уровень и цели, обсуждаем сроки и формат. После занятия вы понимаете, как будет выстроено обучение и какого результата ждать.</p></div></div></div>
+      <div class="acc__item"><button class="acc__q" type="button">С кем вы занимаетесь?<i></i></button><div class="acc__a"><div><p>С детьми — от первых международных экзаменов YLE, со школьниками — ЕГЭ, ОГЭ и олимпиады, со взрослыми — разговорный и деловой английский, подготовка к B2 First и TOEFL.</p></div></div></div>
+      <div class="acc__item"><button class="acc__q" type="button">Можно ли заниматься онлайн?<i></i></button><div class="acc__a"><div><p>Да. Онлайн-занятия проходят в том же формате и с теми же материалами, что и очные. Также возможны занятия в кабинете преподавателя или с выездом к ученику.</p></div></div></div>
+      <div class="acc__item"><button class="acc__q" type="button">Сколько длится занятие?<i></i></button><div class="acc__a"><div><p>От 60 до 90 минут — в зависимости от возраста ученика, цели и интенсивности программы.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="wrap contact__grid">
+    <div>
+      <span class="eyebrow rv">Запись</span>
+      <h2 class="rv rv-d1">Начнём с <em>разговора</em></h2>
+      <p class="lead rv rv-d2">Оставьте заявку — я свяжусь с вами, отвечу на вопросы и подберу удобное время для первого занятия.</p>
+      <div class="contact__links rv">
+        <a href="#" data-contact="phone">—<span>Телефон</span></a>
+        <a href="mailto:olunchic@inbox.ru">olunchic@inbox.ru<span>Почта</span></a>
+        <a href="#" data-contact="telegram" target="_blank" rel="noopener">Telegram<span>Написать</span></a>
+        <a href="#" data-contact="whatsapp" target="_blank" rel="noopener">WhatsApp<span>Написать</span></a>
+        <a href="https://profi.ru/profile/ChernovaOA/" target="_blank" rel="noopener">Профи.ру<span>Профиль</span></a>
+      </div>
+    </div>
+    <form class="form rv rv-d2" id="form" novalidate>
+      <h3>Заявка на пробное занятие</h3>
+      <p>Ответ — в течение дня.</p>
+      <div class="field"><input id="f-name" name="name" placeholder=" " required autocomplete="name"><label for="f-name">Ваше имя</label></div>
+      <div class="field"><input id="f-phone" name="phone" type="tel" placeholder=" " required autocomplete="tel"><label for="f-phone">Телефон или Telegram</label></div>
+      <div class="field">
+        <select id="f-goal" name="goal">
+          <option>Английский для взрослых</option>
+          <option>Разговорный / выразительный английский</option>
+          <option>ЕГЭ / ОГЭ</option>
+          <option>YLE / A2 Key для ребёнка</option>
+          <option>B2 First / TOEFL</option>
+          <option>Олимпиады</option>
+        </select><label for="f-goal">Цель обучения</label>
+      </div>
+      <div class="field"><textarea id="f-msg" name="msg" placeholder=" " rows="2"></textarea><label for="f-msg">Комментарий</label></div>
+      <button class="btn btn--solid" type="submit">Отправить заявку <span class="arr">→</span></button>
+      <div class="form__ok">Заявка готова. <a id="waLink" href="#" target="_blank" rel="noopener" class="link">Открыть WhatsApp с текстом заявки →</a></div>
+      <small>Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</small>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__in">
+      <a href="#top" class="logo"><b>Sterling</b><small>English Atelier</small></a>
+      <nav aria-label="Меню в подвале">
+        <a href="#about">О преподавателе</a><a href="#programs">Программы</a><a href="#reviews">Отзывы</a><a href="#pricing">Стоимость</a><a href="#contact">Контакты</a>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span id="year">2026</span> Sterling English · Ольга Чернова · Москва и онлайн</span>
+      <a href="#top" class="to-top">Наверх ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+/* ===== Контакты: замените на свои ===== */
+const CONTACT = {
+  phone: '+7 (926) 820-26-86',  // телефон для отображения
+  whatsapp: '79268202686',       // номер для WhatsApp, только цифры
+  telegram: '+79268202686'           // ник в Telegram без @ или номер вида +7…
+};
+
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+
+  /* contacts */
+  const tel = CONTACT.phone.replace(/[^\d+]/g, '');
+  $$('[data-contact="phone"]').forEach(a => { a.href = 'tel:' + tel; a.firstChild.textContent = CONTACT.phone; });
+  $$('[data-contact="telegram"]').forEach(a => a.href = 'https://t.me/' + CONTACT.telegram);
+  $$('[data-contact="whatsapp"]').forEach(a => a.href = 'https://wa.me/' + CONTACT.whatsapp);
+  $('#year').textContent = new Date().getFullYear();
+
+  /* smooth scroll */
+  let lenis = null;
+  if (!reduce && window.Lenis) {
+    lenis = new Lenis({ duration: 1.25, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+    const raf = t => { lenis.raf(t); requestAnimationFrame(raf); };
+    requestAnimationFrame(raf);
+  }
+  const scrollTo = target => {
+    const el = target === '#top' ? document.body : $(target);
+    if (!el) return;
+    if (lenis) lenis.scrollTo(el, { offset: target === '#top' ? 0 : -60 });
+    else el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+  };
+
+  /* menu */
+  const root = document.documentElement, burger = $('#burger');
+  const toggleMenu = open => {
+    root.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', open);
+    open ? lenis?.stop() : lenis?.start();
+  };
+  burger.addEventListener('click', () => toggleMenu(!root.classList.contains('menu-open')));
+  $$('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+    const h = a.getAttribute('href');
+    if (h.length < 2) return;
+    e.preventDefault(); toggleMenu(false); scrollTo(h);
+  }));
+
+  /* header state */
+  const header = $('#header'), hero = $('.hero');
+  let lastY = 0;
+  const onScroll = () => {
+    const y = window.scrollY;
+    header.classList.toggle('is-solid', y > hero.offsetHeight - 120);
+    header.classList.toggle('is-hidden', y > lastY && y > hero.offsetHeight && !root.classList.contains('menu-open'));
+    lastY = y;
+    if (!reduce) {
+      if (y < hero.offsetHeight) $('#heroMedia').style.transform = `translate3d(0,${y * .35}px,0)`;
+      const p = $('#parallaxImg'), r = p.parentElement.getBoundingClientRect();
+      if (r.bottom > 0 && r.top < innerHeight) p.style.transform = `translate3d(0,${(r.top / innerHeight) * -60}px,0)`;
+    }
+    manifestoWords();
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+
+  /* manifesto word-by-word highlight */
+  const mq = $('#manifesto');
+  const wrapWords = node => {
+    [...node.childNodes].forEach(n => {
+      if (n.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(w => {
+          if (!w) return;
+          if (/^\s+$/.test(w)) frag.appendChild(document.createTextNode(w));
+          else { const s = document.createElement('span'); s.className = 'word'; s.textContent = w; frag.appendChild(s); }
+        });
+        n.replaceWith(frag);
+      } else wrapWords(n);
+    });
+  };
+  wrapWords(mq);
+  const words = $$('.word', mq);
+  function manifestoWords() {
+    const r = mq.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, (innerHeight * .85 - r.top) / (r.height + innerHeight * .35)));
+    const n = Math.round(p * words.length);
+    words.forEach((w, i) => w.classList.toggle('on', i < n));
+  }
+
+  /* reveal on scroll */
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('in'); io.unobserve(e.target);
+    if (e.target.querySelector('[data-count]')) count(e.target.querySelector('[data-count]'));
+  }), { threshold: 0, rootMargin: '0px 0px 8% 0px' });
+  $$('.rv, .img-rv').forEach(el => io.observe(el));
+
+  /* counters */
+  function count(el) {
+    const end = parseFloat(el.dataset.count), dec = +el.dataset.dec || 0, t0 = performance.now(), d = reduce ? 1 : 1800;
+    const step = t => {
+      const k = Math.min(1, (t - t0) / d), v = end * (1 - Math.pow(1 - k, 4));
+      el.textContent = v.toFixed(dec).replace('.', ',');
+      if (k < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  /* testimonials slider */
+  const slides = $$('.slide'), bar = $('#bar'), cnt = $('#count');
+  let cur = 0, timer;
+  const pad = n => String(n).padStart(2, '0');
+  const show = i => {
+    slides[cur].classList.remove('active');
+    cur = (i + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+    cnt.textContent = `${pad(cur + 1)} / ${pad(slides.length)}`;
+    bar.classList.remove('run'); void bar.offsetWidth; bar.classList.add('run');
+    clearTimeout(timer); timer = setTimeout(() => show(cur + 1), 8000);
+  };
+  $('#prev').onclick = () => show(cur - 1);
+  $('#next').onclick = () => show(cur + 1);
+  show(0);
+
+  /* accordion */
+  $$('.acc__item').forEach(it => $('.acc__q', it).addEventListener('click', () => {
+    const open = it.classList.contains('open');
+    $$('.acc__item').forEach(x => x.classList.remove('open'));
+    if (!open) it.classList.add('open');
+  }));
+
+  /* lightbox */
+  const lb = $('#lightbox'), lbImg = $('img', lb);
+  $$('.cert').forEach(c => c.addEventListener('click', () => { lbImg.src = c.dataset.full; lb.classList.add('open'); lenis?.stop(); }));
+  const closeLb = () => { lb.classList.remove('open'); lenis?.start(); };
+  lb.addEventListener('click', closeLb);
+  addEventListener('keydown', e => { if (e.key === 'Escape') { closeLb(); toggleMenu(false); } });
+
+  /* form → WhatsApp with the request text */
+  $('#form').addEventListener('submit', e => {
+    e.preventDefault();
+    const f = e.target.elements, name = f.name.value.trim(), phone = f.phone.value.trim();
+    if (!name || !phone) { (name ? f.phone : f.name).focus(); return; }
+    const text = `Здравствуйте, Ольга! Хочу записаться на пробное занятие.\nИмя: ${name}\nКонтакт: ${phone}\nЦель: ${f.goal.value}` + (f.msg.value.trim() ? `\nКомментарий: ${f.msg.value.trim()}` : '');
+    $('#waLink').href = 'https://wa.me/' + CONTACT.whatsapp + '?text=' + encodeURIComponent(text);
+    e.target.classList.add('sent');
+  });
+
+  /* intro */
+  const start = () => requestAnimationFrame(() => root.classList.add('is-loaded'));
+  const img = $('.hero__media img');
+  img.complete ? start() : (img.addEventListener('load', start), setTimeout(start, 1500));
+  onScroll();
+})();
+</script>
+</body>
+</html>
