@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sterling English</title>
-<meta name="description" content="Sterling English — частная школа английского языка в Москве и онлайн. Индивидуальные занятия с Ольгой Черновой: 25 лет преподавания, сертификаты Cambridge English, подготовка к ЕГЭ, ОГЭ, YLE, A2 Key, B2 First, TOEFL.">
+<meta name="description" content="Sterling English — частная школа английского языка в Москве и онлайн. Индивидуальные занятия с Ольгой Черновой: кандидат филологических наук, 25 лет преподавания, сертификаты Cambridge English, подготовка к ЕГЭ, ОГЭ, YLE, A2 Key, B2 First, TOEFL.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -185,7 +185,7 @@ section{position:relative}
 .approach .lead{color:rgba(246,241,233,.68)}
 .approach__grid{display:grid;grid-template-columns:5fr 6fr;gap:clamp(48px,7vw,120px);align-items:start}
 .approach__img{position:sticky;top:110px;aspect-ratio:4/5;overflow:hidden}
-.approach__img img{width:100%;height:120%;object-fit:cover;filter:saturate(.7) brightness(.85)}
+.approach__img img{width:100%;height:120%;object-fit:cover;object-position:center 15%;filter:saturate(.85) brightness(.92)}
 .approach h2{margin:22px 0 28px}
 .steps{list-style:none;padding:0;margin:56px 0 0;counter-reset:s}
 .steps li{position:relative;padding:34px 0 34px 86px;border-top:1px solid var(--line-light)}
@@ -196,16 +196,22 @@ section{position:relative}
 
 /* ---------- credentials ---------- */
 .creds{padding:clamp(100px,12vw,180px) 0;background:var(--paper)}
-.creds__grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(24px,3vw,48px);align-items:start}
+.creds__grid{display:grid;grid-template-columns:4fr 7fr;gap:clamp(48px,7vw,120px);align-items:start}
+.creds__intro{position:sticky;top:110px}
 .creds__intro h2{margin:22px 0 26px;font-size:clamp(40px,4.4vw,64px)}
+.creds__photo{margin-top:48px;max-width:380px;aspect-ratio:4/5;overflow:hidden}
+.creds__photo img{width:100%;height:100%;object-fit:cover;object-position:center 12%;filter:saturate(.9)}
+.creds__docs{display:grid;grid-template-columns:1fr 1fr;gap:clamp(48px,5vw,72px) clamp(24px,3vw,48px);align-items:start}
 .cert{display:block;text-align:left;width:100%}
+.cert--wide{align-self:center}
+.cert--wide .cert__img img{aspect-ratio:3/2}
 .cert__img{background:var(--ivory);padding:18px;box-shadow:0 30px 60px -30px rgba(20,29,26,.35);transition:transform .8s var(--ease),box-shadow .8s var(--ease)}
-.cert__img img{aspect-ratio:3/4;object-fit:cover;object-position:top;width:100%}
+.cert__img img{aspect-ratio:3/4;object-fit:contain;width:100%}
 .cert:hover .cert__img{transform:translateY(-10px);box-shadow:0 46px 70px -34px rgba(20,29,26,.45)}
 .cert__cap{margin-top:22px;display:flex;justify-content:space-between;gap:16px;align-items:baseline;border-top:1px solid var(--line);padding-top:16px}
 .cert__cap b{font-family:var(--serif);font-weight:500;font-size:22px}
 .cert__cap span{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass)}
-.cert:nth-child(3){margin-top:clamp(0px,8vw,120px)}
+.cert__note{margin:6px 0 0;font-size:14px;line-height:1.5;color:var(--muted)}
 
 .lightbox{position:fixed;inset:0;z-index:100;background:rgba(14,20,18,.92);display:grid;place-items:center;padding:24px;opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility .5s}
 .lightbox.open{opacity:1;visibility:visible}
@@ -235,8 +241,6 @@ section{position:relative}
 .slider__bar i{position:absolute;inset:0;background:var(--brass);transform-origin:left;transform:scaleX(0)}
 .slider__bar i.run{animation:bar 8s linear forwards}
 @keyframes bar{to{transform:scaleX(1)}}
-.reviews__src{margin-top:40px;font-size:14px;color:var(--muted)}
-.reviews__src a{color:var(--forest);border-bottom:1px solid var(--brass)}
 
 /* ---------- pricing ---------- */
 .pricing{padding:clamp(100px,12vw,180px) 0;background:var(--ivory);border-top:1px solid var(--line)}
@@ -261,6 +265,10 @@ section{position:relative}
 .faq{padding:0 0 clamp(100px,12vw,180px)}
 .faq__grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(48px,7vw,120px)}
 .faq h2{margin-top:22px;font-size:clamp(40px,4.4vw,64px)}
+.faq__photo{position:relative;isolation:isolate;margin-top:56px;max-width:340px}
+.faq__photo::before{content:"";position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--brass);z-index:-1}
+.faq__photo .img-rv{aspect-ratio:4/5;overflow:hidden}
+.faq__photo img{width:100%;height:100%;object-fit:cover;object-position:center 10%}
 .acc{border-top:1px solid var(--line)}
 .acc__item{border-bottom:1px solid var(--line)}
 .acc__q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:28px 0;text-align:left;font-family:var(--serif);font-size:clamp(22px,2vw,28px);line-height:1.25}
@@ -298,6 +306,7 @@ section{position:relative}
 .form small{display:block;margin-top:16px;font-size:12.5px;color:var(--muted);line-height:1.5}
 .form__ok{display:none;padding:12px 0 0;color:var(--forest);font-size:15px}
 .form.sent .form__ok{display:block}
+.form__alt{display:inline-block;margin-top:10px;font-size:14px;color:var(--muted);border-bottom:1px solid var(--line)}
 
 /* ---------- footer ---------- */
 .footer{background:var(--ink);color:rgba(246,241,233,.6);padding:56px 0 40px;font-size:13.5px}
@@ -315,10 +324,12 @@ section{position:relative}
   .burger{display:block}
   .about__grid,.approach__grid,.pricing__grid,.faq__grid,.contact__grid,.sec-head{grid-template-columns:1fr}
   .portrait{margin:0 auto 20px;max-width:400px}
-  .approach__img{position:relative;top:0;aspect-ratio:16/10}
-  .creds__grid{grid-template-columns:1fr 1fr}
-  .creds__intro{grid-column:1/-1}
-  .cert:nth-child(3){margin-top:0}
+  .approach__img{position:relative;top:0;aspect-ratio:1/1;max-width:560px}
+  .creds__grid{grid-template-columns:1fr}
+  .creds__intro{position:static;display:grid;grid-template-columns:3fr 2fr;column-gap:clamp(32px,5vw,64px);align-items:start}
+  .creds__intro>*{grid-column:1}
+  .creds__intro .creds__photo{grid-column:2;grid-row:1/4;margin-top:0;max-width:none}
+  .faq__photo{display:none}
   .stats{grid-template-columns:1fr 1fr;row-gap:48px}
 }
 @media (max-width:720px){
@@ -338,12 +349,16 @@ section{position:relative}
   .prog__item p{grid-column:2}
   .prog__arr{display:none}
   .steps li{padding-left:56px}
-  .creds__grid{grid-template-columns:1fr}
+  .creds__intro{display:block}
+  .creds__intro .creds__photo{margin-top:40px}
   .stat{padding-left:18px}
   .prices li{flex-wrap:wrap;gap:4px 12px}
   .prices .dots{display:none}
   .prices .pr{width:100%}
   .slider__nav{gap:16px}
+}
+@media (max-width:560px){
+  .creds__docs{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
@@ -391,7 +406,7 @@ section{position:relative}
       <span class="ln"><span>который звучит</span></span>
       <span class="ln"><span><em>безупречно</em></span></span>
     </h1>
-    <p class="lead fade-up d1">Индивидуальные занятия с Ольгой Черновой — лингвистом и&nbsp;преподавателем с&nbsp;25-летним опытом, обладательницей сертификатов Cambridge English.</p>
+    <p class="lead fade-up d1">Индивидуальные занятия с Ольгой Черновой — лингвистом, кандидатом филологических наук и&nbsp;преподавателем с&nbsp;25-летним опытом.</p>
     <div class="hero__cta fade-up d2">
       <a href="#contact" class="btn btn--solid">Пробное занятие <span class="arr">→</span></a>
       <a href="#about" class="link">Познакомиться</a>
@@ -418,16 +433,17 @@ section{position:relative}
 <section class="about" id="about">
   <div class="wrap about__grid">
     <div class="portrait rv">
-      <div class="portrait__frame img-rv"><img src="assets/olga.jpg" alt="Ольга Чернова, основатель и преподаватель Sterling English" loading="lazy"></div>
+      <div class="portrait__frame img-rv"><img src="assets/olga-portrait.jpg" alt="Ольга Чернова, основатель и преподаватель Sterling English" loading="lazy"></div>
       <div class="portrait__tag"><b>с 2001</b>преподаю английский детям, подросткам и&nbsp;взрослым</div>
     </div>
     <div class="about__text">
       <span class="eyebrow rv">Основатель школы</span>
       <h2 class="rv rv-d1">Ольга <em>Чернова</em></h2>
-      <p class="intro rv rv-d1">Лингвист, преподаватель английского и&nbsp;французского языков. Расширяю знания учеников исходя из их запросов, используя собственные методики.</p>
+      <p class="intro rv rv-d1">Лингвист, кандидат филологических наук, преподаватель английского и&nbsp;французского языков. Расширяю знания учеников исходя из их запросов, используя собственные методики.</p>
       <p class="rv rv-d2">Параллельно с преподаванием работаю в IT-сфере — поэтому хорошо понимаю, каким английский нужен в&nbsp;работе: на переговорах, в&nbsp;переписке, в&nbsp;международной команде. Взрослым помогаю быстро выстроить грамматику и&nbsp;заговорить свободно, а&nbsp;по запросу учу красиво выражать мысли — с&nbsp;устойчивыми выражениями и&nbsp;живой лексикой.</p>
       <ul class="facts">
-        <li class="rv"><span>Образование</span><p>МГОУ, Институт лингвистики и&nbsp;межкультурной коммуникации<small>Лингвист, преподаватель английского и&nbsp;французского языков · 1999–2004</small></p></li>
+        <li class="rv"><span>Образование</span><p>МГОУ, Институт лингвистики и&nbsp;межкультурной коммуникации<small>Диплом с квалификацией «Лингвист. Преподаватель английского и&nbsp;французского языков» по&nbsp;специальности «Теория и&nbsp;методика преподавания иностранных языков и&nbsp;культур» · 2004</small></p></li>
+        <li class="rv"><span>Степень</span><p>Кандидат филологических наук<small>Решение диссертационного совета МГОУ · 2009</small></p></li>
         <li class="rv"><span>Cambridge</span><p>Обучение в Newnham Cambridge Centre<small>Курсы ВКС для подготовки к CELTA · сертификаты Cambridge English (CAE) 2015 и 2019</small></p></li>
         <li class="rv"><span>Опыт</span><p>Корпоративные группы в компаниях Renault, «Технолига» и др.<small>Работала переводчиком и преподавателем курсов английского языка</small></p></li>
       </ul>
@@ -441,7 +457,7 @@ section{position:relative}
   <div class="wrap stats">
     <div class="stat rv"><b data-count="25">0</b><span>лет преподавательской практики</span></div>
     <div class="stat rv rv-d1"><b data-count="4.9" data-dec="2">0</b><span>средняя оценка по отзывам учеников</span></div>
-    <div class="stat rv rv-d2"><b data-count="11">0</b><span>лет на Профи.ру с&nbsp;проверенными документами</span></div>
+    <div class="stat rv rv-d2"><b>к.ф.н.</b><span>кандидат филологических наук с&nbsp;2009 года</span></div>
     <div class="stat rv rv-d3"><b data-count="9">0</b><span>программ — от YLE до TOEFL</span></div>
   </div>
 </section>
@@ -467,7 +483,7 @@ section{position:relative}
 <!-- ============ APPROACH ============ -->
 <section class="approach" id="approach">
   <div class="wrap approach__grid">
-    <div class="approach__img img-rv"><img src="assets/study.jpg" alt="Раскрытые книги и конспект на столе" loading="lazy" id="parallaxImg"></div>
+    <div class="approach__img img-rv"><img src="assets/olga-studio.jpg" alt="Ольга Чернова в студии" loading="lazy" id="parallaxImg"></div>
     <div>
       <span class="eyebrow rv">Подход</span>
       <h2 class="rv rv-d1">Живой язык <em>вместо</em> зубрёжки</h2>
@@ -487,27 +503,42 @@ section{position:relative}
   <div class="wrap creds__grid">
     <div class="creds__intro">
       <span class="eyebrow rv">Квалификация</span>
-      <h2 class="rv rv-d1">Подтверждено <em>Кембриджем</em></h2>
-      <p class="lead rv rv-d2">Документы об образовании, опыте и&nbsp;сертификаты проверены сервисом Профи.ру. Регулярно подтверждаю свой уровень международными экзаменами Cambridge Assessment English.</p>
+      <h2 class="rv rv-d1">Подтверждено <em>документами</em></h2>
+      <p class="lead rv rv-d2">Высшее лингвистическое образование, учёная степень кандидата филологических наук и&nbsp;международные сертификаты Cambridge English. Свой уровень регулярно подтверждаю экзаменами Cambridge Assessment English.</p>
+      <div class="creds__photo img-rv"><img src="assets/olga-formal.jpg" alt="Ольга Чернова" loading="lazy"></div>
     </div>
-    <button class="cert rv rv-d1" data-full="assets/cert-2015.jpg" aria-label="Открыть сертификат 2015 года">
-      <div class="cert__img"><img src="assets/cert-2015.jpg" alt="Сертификат Cambridge English, 2015" loading="lazy"></div>
-      <div class="cert__cap"><b>Cambridge English</b><span>2015</span></div>
-    </button>
-    <button class="cert rv rv-d2" data-full="assets/cert-2019.jpg" aria-label="Открыть сертификат 2019 года">
-      <div class="cert__img"><img src="assets/cert-2019.jpg" alt="Сертификат Cambridge Assessment English, 2019" loading="lazy"></div>
-      <div class="cert__cap"><b>Cambridge Assessment</b><span>2019</span></div>
-    </button>
+    <div class="creds__docs">
+      <button class="cert rv" data-full="assets/diploma-2004.jpg" aria-label="Открыть диплом МГОУ">
+        <div class="cert__img"><img src="assets/diploma-2004.jpg" alt="Диплом МГОУ: лингвист, преподаватель английского и французского языков, 2004" loading="lazy"></div>
+        <div class="cert__cap"><b>Диплом МГОУ</b><span>2004</span></div>
+        <p class="cert__note">Лингвист, преподаватель английского и&nbsp;французского языков</p>
+      </button>
+      <button class="cert cert--wide rv rv-d1" data-full="assets/phd-2009.jpg" aria-label="Открыть диплом кандидата наук">
+        <div class="cert__img"><img src="assets/phd-2009.jpg" alt="Диплом кандидата филологических наук, 2009" loading="lazy"></div>
+        <div class="cert__cap"><b>Кандидат наук</b><span>2009</span></div>
+        <p class="cert__note">Учёная степень кандидата филологических наук</p>
+      </button>
+      <button class="cert rv" data-full="assets/cert-2015.jpg" aria-label="Открыть сертификат 2015 года">
+        <div class="cert__img"><img src="assets/cert-2015.jpg" alt="Сертификат Cambridge English, 2015" loading="lazy"></div>
+        <div class="cert__cap"><b>Cambridge English</b><span>2015</span></div>
+        <p class="cert__note">Международный экзамен CAE, Москва</p>
+      </button>
+      <button class="cert rv rv-d1" data-full="assets/cert-2019.jpg" aria-label="Открыть сертификат 2019 года">
+        <div class="cert__img"><img src="assets/cert-2019.jpg" alt="Сертификат Cambridge Assessment English, 2019" loading="lazy"></div>
+        <div class="cert__cap"><b>Cambridge Assessment</b><span>2019</span></div>
+        <p class="cert__note">Повторная сдача экзамена, подтверждение уровня</p>
+      </button>
+    </div>
   </div>
 </section>
-<div class="lightbox" id="lightbox" aria-hidden="true"><button type="button">Закрыть ✕</button><img src="" alt="Сертификат"></div>
+<div class="lightbox" id="lightbox" aria-hidden="true"><button type="button">Закрыть ✕</button><img src="" alt=""></div>
 
 <!-- ============ REVIEWS ============ -->
 <section class="reviews" id="reviews">
   <div class="wrap">
     <div class="reviews__head">
       <div><span class="eyebrow rv">Отзывы</span><h2 class="rv rv-d1" style="margin-top:22px">Слово <em>ученикам</em></h2></div>
-      <div class="rating rv rv-d2"><b>4,90</b><div><div class="stars">★★★★★</div><small>20 проверенных отзывов<br>на Профи.ру</small></div></div>
+      <div class="rating rv rv-d2"><b>4,90</b><div><div class="stars">★★★★★</div><small>средняя оценка<br>по 20 отзывам учеников</small></div></div>
     </div>
     <div class="slider rv" id="slider">
       <div class="slide active"><blockquote>Уроки проходят всегда в&nbsp;положительном настрое, в&nbsp;комфортной обстановке. Ребёнку нравится общение с&nbsp;педагогом, знания он получает в&nbsp;лёгкой, доступной форме — и&nbsp;это уже положительно отражается на успеваемости в&nbsp;школе.</blockquote><div class="who">Наталия <span>Английский язык</span></div></div>
@@ -522,7 +553,6 @@ section{position:relative}
       <span class="slider__count" id="count">01 / 05</span>
       <div class="slider__bar"><i id="bar"></i></div>
     </div>
-    <p class="reviews__src rv">Все отзывы проходят проверку на подлинность — <a href="https://profi.ru/profile/ChernovaOA/" target="_blank" rel="noopener">читать на Профи.ру</a></p>
   </div>
 </section>
 
@@ -555,10 +585,14 @@ section{position:relative}
 <!-- ============ FAQ ============ -->
 <section class="faq" id="faq">
   <div class="wrap faq__grid">
-    <div><span class="eyebrow rv">Вопросы</span><h2 class="rv rv-d1">Часто <em>спрашивают</em></h2></div>
+    <div>
+      <span class="eyebrow rv">Вопросы</span><h2 class="rv rv-d1">Часто <em>спрашивают</em></h2>
+      <div class="faq__photo rv rv-d2"><div class="img-rv"><img src="assets/olga-warm.jpg" alt="Ольга Чернова" loading="lazy"></div></div>
+    </div>
     <div class="acc rv">
       <div class="acc__item open"><button class="acc__q" type="button">Как проходит первое занятие?<i></i></button><div class="acc__a"><div><p>Знакомимся, определяем уровень и цели, обсуждаем сроки и формат. После занятия вы понимаете, как будет выстроено обучение и какого результата ждать.</p></div></div></div>
       <div class="acc__item"><button class="acc__q" type="button">С кем вы занимаетесь?<i></i></button><div class="acc__a"><div><p>С детьми — от первых международных экзаменов YLE, со школьниками — ЕГЭ, ОГЭ и олимпиады, со взрослыми — разговорный и деловой английский, подготовка к B2 First и TOEFL.</p></div></div></div>
+      <div class="acc__item"><button class="acc__q" type="button">Какое у вас образование?<i></i></button><div class="acc__a"><div><p>Высшее лингвистическое: МГОУ, квалификация «Лингвист. Преподаватель английского и французского языков» (2004). В 2009 году получила учёную степень кандидата филологических наук. Уровень английского подтверждён экзаменами Cambridge English в 2015 и 2019 годах — документы можно посмотреть в разделе «Квалификация».</p></div></div></div>
       <div class="acc__item"><button class="acc__q" type="button">Можно ли заниматься онлайн?<i></i></button><div class="acc__a"><div><p>Да. Онлайн-занятия проходят в том же формате и с теми же материалами, что и очные. Также возможны занятия в кабинете преподавателя или с выездом к ученику.</p></div></div></div>
       <div class="acc__item"><button class="acc__q" type="button">Сколько длится занятие?<i></i></button><div class="acc__a"><div><p>От 60 до 90 минут — в зависимости от возраста ученика, цели и интенсивности программы.</p></div></div></div>
     </div>
@@ -575,9 +609,7 @@ section{position:relative}
       <div class="contact__links rv">
         <a href="#" data-contact="phone">—<span>Телефон</span></a>
         <a href="mailto:olunchic@inbox.ru">olunchic@inbox.ru<span>Почта</span></a>
-        <a href="#" data-contact="telegram" target="_blank" rel="noopener">Telegram<span>Написать</span></a>
-        <a href="#" data-contact="whatsapp" target="_blank" rel="noopener">WhatsApp<span>Написать</span></a>
-        <a href="https://profi.ru/profile/ChernovaOA/" target="_blank" rel="noopener">Профи.ру<span>Профиль</span></a>
+        <a href="https://t.me/olgachernovao" data-contact="telegram" target="_blank" rel="noopener">@olgachernovao<span>Telegram</span></a>
       </div>
     </div>
     <form class="form rv rv-d2" id="form" novalidate>
@@ -597,7 +629,7 @@ section{position:relative}
       </div>
       <div class="field"><textarea id="f-msg" name="msg" placeholder=" " rows="2"></textarea><label for="f-msg">Комментарий</label></div>
       <button class="btn btn--solid" type="submit">Отправить заявку <span class="arr">→</span></button>
-      <div class="form__ok">Заявка готова. <a id="waLink" href="#" target="_blank" rel="noopener" class="link">Открыть WhatsApp с текстом заявки →</a></div>
+      <div class="form__ok"><span id="okText">Заявка готова.</span> <a id="tgLink" href="#" target="_blank" rel="noopener" class="link">Написать в Telegram →</a><br><a id="mailLink" href="#" class="form__alt">или отправить на почту</a></div>
       <small>Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</small>
     </form>
   </div>
@@ -625,8 +657,8 @@ section{position:relative}
 /* ===== Контакты: замените на свои ===== */
 const CONTACT = {
   phone: '+7 (926) 820-26-86',  // телефон для отображения
-  whatsapp: '79268202686',       // номер для WhatsApp, только цифры
-  telegram: '+79268202686'           // ник в Telegram без @ или номер вида +7…
+  telegram: 'olgachernovao',     // ник в Telegram без @
+  email: 'olunchic@inbox.ru'     // почта для заявок из формы
 };
 
 (() => {
@@ -637,8 +669,7 @@ const CONTACT = {
   /* contacts */
   const tel = CONTACT.phone.replace(/[^\d+]/g, '');
   $$('[data-contact="phone"]').forEach(a => { a.href = 'tel:' + tel; a.firstChild.textContent = CONTACT.phone; });
-  $$('[data-contact="telegram"]').forEach(a => a.href = 'https://t.me/' + CONTACT.telegram);
-  $$('[data-contact="whatsapp"]').forEach(a => a.href = 'https://wa.me/' + CONTACT.whatsapp);
+  $$('[data-contact="telegram"]').forEach(a => { a.href = 'https://t.me/' + CONTACT.telegram; a.firstChild.textContent = '@' + CONTACT.telegram; });
   $('#year').textContent = new Date().getFullYear();
 
   /* smooth scroll */
@@ -754,18 +785,22 @@ const CONTACT = {
 
   /* lightbox */
   const lb = $('#lightbox'), lbImg = $('img', lb);
-  $$('.cert').forEach(c => c.addEventListener('click', () => { lbImg.src = c.dataset.full; lb.classList.add('open'); lenis?.stop(); }));
+  $$('.cert').forEach(c => c.addEventListener('click', () => { lbImg.src = c.dataset.full; lbImg.alt = $('img', c).alt; lb.classList.add('open'); lenis?.stop(); }));
   const closeLb = () => { lb.classList.remove('open'); lenis?.start(); };
   lb.addEventListener('click', closeLb);
   addEventListener('keydown', e => { if (e.key === 'Escape') { closeLb(); toggleMenu(false); } });
 
-  /* form → WhatsApp with the request text */
-  $('#form').addEventListener('submit', e => {
+  /* form → Telegram (text copied to clipboard) or email with the request text */
+  $('#form').addEventListener('submit', async e => {
     e.preventDefault();
     const f = e.target.elements, name = f.name.value.trim(), phone = f.phone.value.trim();
     if (!name || !phone) { (name ? f.phone : f.name).focus(); return; }
     const text = `Здравствуйте, Ольга! Хочу записаться на пробное занятие.\nИмя: ${name}\nКонтакт: ${phone}\nЦель: ${f.goal.value}` + (f.msg.value.trim() ? `\nКомментарий: ${f.msg.value.trim()}` : '');
-    $('#waLink').href = 'https://wa.me/' + CONTACT.whatsapp + '?text=' + encodeURIComponent(text);
+    $('#tgLink').href = 'https://t.me/' + CONTACT.telegram;
+    $('#mailLink').href = 'mailto:' + CONTACT.email + '?subject=' + encodeURIComponent('Заявка на пробное занятие') + '&body=' + encodeURIComponent(text);
+    let copied = false;
+    try { await navigator.clipboard.writeText(text); copied = true; } catch (_) {}
+    $('#okText').textContent = copied ? 'Текст заявки скопирован — вставьте его в чат.' : 'Заявка готова.';
     e.target.classList.add('sent');
   });
 
