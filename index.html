@@ -229,7 +229,7 @@ section{position:relative}
 .slider{position:relative;display:grid}
 .slide{grid-area:1/1;opacity:0;visibility:hidden;transition:opacity 1s var(--ease),visibility 1s}
 .slide.active{opacity:1;visibility:visible}
-.slide blockquote{margin:0;font-family:var(--serif);font-weight:300;font-size:clamp(26px,3vw,44px);line-height:1.3;max-width:1080px}
+.slide blockquote{margin:0;font-family:var(--serif);font-weight:300;font-size:clamp(24px,2.5vw,38px);line-height:1.3;max-width:1080px}
 .slide blockquote::before{content:"“";display:block;font-size:1.9em;line-height:.6;color:var(--brass);height:.45em}
 .slide .who{margin-top:34px;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
 .slide .who span{color:var(--muted);margin-left:10px}
@@ -240,6 +240,25 @@ section{position:relative}
 .slider__bar{flex:1;height:1px;background:var(--line);position:relative;max-width:360px}
 .slider__bar i{position:absolute;inset:0;background:var(--brass);transform-origin:left;transform:scaleX(0)}
 .slider__bar i.run{animation:bar 8s linear forwards}
+.slider__nav .slider__add{margin-left:auto;width:auto;height:auto;border-radius:0;display:inline-flex;border-color:var(--forest);color:var(--forest)}
+.slider__nav .slider__add:hover{background:transparent;color:var(--ivory);border-color:var(--brass)}
+.rmodal{position:fixed;inset:0;z-index:100;background:rgba(14,20,18,.82);display:grid;place-items:center;padding:24px;overflow-y:auto;opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility .5s}
+.rmodal.open{opacity:1;visibility:visible}
+.rmodal__box{position:relative;width:100%;max-width:560px;margin:auto;transform:translateY(24px);transition:transform .7s var(--ease)}
+.rmodal.open .rmodal__box{transform:none}
+.rmodal__close{position:absolute;top:18px;right:20px;width:40px;height:40px;font-size:16px;color:var(--muted);transition:color .4s}
+.rmodal__close:hover{color:var(--ink)}
+.rmodal__box>.rmodal__hint{margin:-10px 0 18px;font-size:13px;color:var(--muted)}
+.rmodal__box>.rmodal__hint.err{color:#a4452c}
+.rate-in{border:0;margin:0 0 18px;padding:0}
+.rate-in legend{padding:0;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
+.rate-in__stars{display:inline-flex;flex-direction:row-reverse;gap:6px;margin-top:8px}
+.rate-in__stars input{position:absolute;opacity:0;pointer-events:none}
+.rate-in__stars label{font-size:32px;line-height:1;color:var(--line);cursor:pointer;transition:color .3s}
+.rate-in__stars input:checked~label{color:var(--brass)}
+.rate-in__stars:hover input~label{color:var(--line)}
+.rate-in__stars input+label:hover,.rate-in__stars input+label:hover~label{color:var(--brass)}
+.rate-in__stars input:focus-visible+label{outline:1px solid var(--brass);outline-offset:2px}
 @keyframes bar{to{transform:scaleX(1)}}
 
 /* ---------- pricing ---------- */
@@ -355,7 +374,8 @@ section{position:relative}
   .prices li{flex-wrap:wrap;gap:4px 12px}
   .prices .dots{display:none}
   .prices .pr{width:100%}
-  .slider__nav{gap:16px}
+  .slider__nav{gap:16px;flex-wrap:wrap}
+  .slider__nav .slider__add{margin-left:0;width:100%;justify-content:center}
 }
 @media (max-width:560px){
   .creds__docs{grid-template-columns:1fr}
@@ -456,7 +476,7 @@ section{position:relative}
 <section class="band">
   <div class="wrap stats">
     <div class="stat rv"><b data-count="25">0</b><span>лет преподавательской практики</span></div>
-    <div class="stat rv rv-d1"><b data-count="4.9" data-dec="2">0</b><span>средняя оценка по отзывам учеников</span></div>
+    <div class="stat rv rv-d1"><b data-count="5" data-dec="1" id="statAvg">0</b><span>средняя оценка по отзывам учеников</span></div>
     <div class="stat rv rv-d2"><b>к.ф.н.</b><span>кандидат филологических наук с&nbsp;2009 года</span></div>
     <div class="stat rv rv-d3"><b data-count="9">0</b><span>программ — от YLE до TOEFL</span></div>
   </div>
@@ -538,23 +558,57 @@ section{position:relative}
   <div class="wrap">
     <div class="reviews__head">
       <div><span class="eyebrow rv">Отзывы</span><h2 class="rv rv-d1" style="margin-top:22px">Слово <em>ученикам</em></h2></div>
-      <div class="rating rv rv-d2"><b>4,90</b><div><div class="stars">★★★★★</div><small>средняя оценка<br>по 20 отзывам учеников</small></div></div>
+      <div class="rating rv rv-d2"><b id="rateAvg">5,0</b><div><div class="stars" id="rateStars">★★★★★</div><small>средняя оценка<br>по <span id="rateNum">5</span> <span id="rateWord">отзывам</span> учеников</small></div></div>
     </div>
     <div class="slider rv" id="slider">
-      <div class="slide active"><blockquote>Уроки проходят всегда в&nbsp;положительном настрое, в&nbsp;комфортной обстановке. Ребёнку нравится общение с&nbsp;педагогом, знания он получает в&nbsp;лёгкой, доступной форме — и&nbsp;это уже положительно отражается на успеваемости в&nbsp;школе.</blockquote><div class="who">Наталия <span>Английский язык</span></div></div>
-      <div class="slide"><blockquote>Преподаватель грамотный, ребёнку было комфортно заниматься. Мы считаем, что она внесла очень хороший вклад в&nbsp;результат. Её личные и&nbsp;профессиональные качества — на высоком уровне.</blockquote><div class="who">Елена <span>Подготовка к ЕГЭ</span></div></div>
-      <div class="slide"><blockquote>Она отзывчива, профессиональна, у&nbsp;неё есть стремление сделать всё как можно лучше. Методы преподавания очень современные — много разговорной речи, аудирование. Мой ребёнок начал разговаривать на английском.</blockquote><div class="who">Ольга <span>Английский язык</span></div></div>
-      <div class="slide"><blockquote>Ольга Александровна — позитивный и&nbsp;доброжелательный человек, легко находит общий язык с&nbsp;ребёнком. Дочь говорит, что занятия проходят необычно и&nbsp;интересно. Будем продолжать обучение.</blockquote><div class="who">Юлия <span>Английский язык</span></div></div>
-      <div class="slide"><blockquote>Уроки проходят продуктивно, педагог приносит разные книги, методические пособия, аудиоматериалы. Основной упор — на разговорный уровень. Оцениваю работу Ольги Александровны на «отлично».</blockquote><div class="who">Карина <span>Английский язык</span></div></div>
+      <div class="slide active" data-rating="5"><blockquote>Абсолютно хорошее впечатление. Преподаватель грамотный, ребёнку было комфортно заниматься. Если ребёнок уставал, буквально за <span style="white-space:nowrap">5–10 минут</span> педагогу удавалось снова включить её в&nbsp;учебный процесс. Мы считаем, что она внесла очень хороший вклад в&nbsp;результат. Её личные и&nbsp;профессиональные качества — на высоком уровне.</blockquote><div class="who">Елена <span>Подготовка к ЕГЭ</span></div></div>
+      <div class="slide" data-rating="5"><blockquote>Ольга Александровна в&nbsp;хорошем контакте и&nbsp;со мной, и&nbsp;с&nbsp;дочерью. Уроки проходят продуктивно, педагог приносит разные книги, методические пособия, аудиоматериалы. Мы занимаемся не по школьной программе — основной упор на разговорный уровень. Оцениваю работу Ольги Александровны на «отлично».</blockquote><div class="who">Карина</div></div>
+      <div class="slide" data-rating="5"><blockquote>Нам очень нравятся занятия с&nbsp;Ольгой Александровной. Она — позитивный и&nbsp;доброжелательный человек, легко находит общий язык с&nbsp;ребёнком. Дочь учится воспринимать текст на слух, закрепляет грамматику и&nbsp;говорит, что занятия проходят необычно и&nbsp;интересно. Будем продолжать обучение.</blockquote><div class="who">Юлия</div></div>
+      <div class="slide" data-rating="5"><blockquote>Очень довольны работой репетитора! Она отзывчива, профессиональна, у&nbsp;неё есть стремление сделать всё как можно лучше. Методы преподавания очень современные — много разговорной речи, аудирование. Мой ребёнок начал разговаривать на английском.</blockquote><div class="who">Ольга</div></div>
+      <div class="slide" data-rating="5"><blockquote>Ольга Александровна вызывает у&nbsp;меня только самые положительные эмоции! Уроки проходят всегда в&nbsp;положительном настрое, в&nbsp;комфортной обстановке. Ребёнку нравится общение с&nbsp;педагогом, знания он получает в&nbsp;лёгкой, доступной форме — и&nbsp;это уже положительно отражается на успеваемости в&nbsp;школе.</blockquote><div class="who">Наталия</div></div>
     </div>
     <div class="slider__nav rv">
       <button type="button" id="prev" aria-label="Предыдущий отзыв">←</button>
       <button type="button" id="next" aria-label="Следующий отзыв">→</button>
       <span class="slider__count" id="count">01 / 05</span>
       <div class="slider__bar"><i id="bar"></i></div>
+      <button type="button" class="btn slider__add" id="reviewOpen">Оставить отзыв</button>
     </div>
   </div>
 </section>
+
+<div class="rmodal" id="reviewModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="rTitle">
+  <form class="form rmodal__box" id="reviewForm" novalidate data-lenis-prevent>
+    <button type="button" class="rmodal__close" id="reviewClose" aria-label="Закрыть">✕</button>
+    <h3 id="rTitle">Ваш отзыв</h3>
+    <p>Отзыв придёт Ольге и появится на сайте после проверки.</p>
+    <fieldset class="rate-in">
+      <legend>Оценка</legend>
+      <div class="rate-in__stars">
+        <input type="radio" name="rate" id="r5" value="5" checked><label for="r5" title="5 из 5">★</label>
+        <input type="radio" name="rate" id="r4" value="4"><label for="r4" title="4 из 5">★</label>
+        <input type="radio" name="rate" id="r3" value="3"><label for="r3" title="3 из 5">★</label>
+        <input type="radio" name="rate" id="r2" value="2"><label for="r2" title="2 из 5">★</label>
+        <input type="radio" name="rate" id="r1" value="1"><label for="r1" title="1 из 5">★</label>
+      </div>
+    </fieldset>
+    <div class="field"><input id="r-name" name="name" placeholder=" " required autocomplete="given-name"><label for="r-name">Ваше имя</label></div>
+    <div class="field">
+      <select id="r-prog" name="prog">
+        <option>Английский язык</option>
+        <option>Разговорный английский</option>
+        <option>Подготовка к ЕГЭ / ОГЭ</option>
+        <option>YLE / A2 Key</option>
+        <option>B2 First / TOEFL</option>
+        <option>Олимпиады</option>
+      </select><label for="r-prog">Программа</label>
+    </div>
+    <div class="field"><textarea id="r-text" name="text" placeholder=" " rows="4" required minlength="60"></textarea><label for="r-text">Ваш отзыв</label></div>
+    <p class="rmodal__hint" id="rHint">Расскажите подробнее — хотя бы пару предложений.</p>
+    <button class="btn btn--solid" type="submit">Отправить отзыв <span class="arr">→</span></button>
+    <div class="form__ok"><span id="rOkText">Отзыв готов.</span> <a id="rTgLink" href="#" target="_blank" rel="noopener" class="link">Отправить в Telegram →</a><br><a id="rMailLink" href="#" class="form__alt">или отправить на почту</a></div>
+  </form>
+</div>
 
 <!-- ============ PRICING ============ -->
 <section class="pricing" id="pricing">
@@ -762,6 +816,17 @@ const CONTACT = {
 
   /* testimonials slider */
   const slides = $$('.slide'), bar = $('#bar'), cnt = $('#count');
+
+  /* average rating from the published reviews (data-rating on each slide) */
+  const rates = slides.map(s => +s.dataset.rating).filter(Boolean);
+  if (rates.length) {
+    const n = rates.length, avg = rates.reduce((a, b) => a + b, 0) / n, full = Math.round(avg);
+    $('#rateAvg').textContent = avg.toFixed(1).replace('.', ',');
+    $('#rateStars').textContent = '★'.repeat(full) + '☆'.repeat(5 - full);
+    $('#rateNum').textContent = n;
+    $('#rateWord').textContent = n % 10 === 1 && n % 100 !== 11 ? 'отзыву' : 'отзывам';
+    $('#statAvg').dataset.count = avg.toFixed(1);
+  }
   let cur = 0, timer;
   const pad = n => String(n).padStart(2, '0');
   const show = i => {
@@ -802,6 +867,34 @@ const CONTACT = {
     try { await navigator.clipboard.writeText(text); copied = true; } catch (_) {}
     $('#okText').textContent = copied ? 'Текст заявки скопирован — вставьте его в чат.' : 'Заявка готова.';
     e.target.classList.add('sent');
+  });
+
+  /* review form → sent to Olga for moderation (Telegram or email) */
+  const rm = $('#reviewModal'), rf = $('#reviewForm'), hint = $('#rHint'), hintText = hint.textContent;
+  const openReview = on => {
+    rm.classList.toggle('open', on); rm.setAttribute('aria-hidden', !on);
+    if (on) { lenis?.stop(); setTimeout(() => rf.elements.name.focus(), 300); }
+    else { lenis?.start(); $('#reviewOpen').focus(); }
+  };
+  $('#reviewOpen').addEventListener('click', () => openReview(true));
+  $('#reviewClose').addEventListener('click', () => openReview(false));
+  rm.addEventListener('click', e => { if (e.target === rm) openReview(false); });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && rm.classList.contains('open')) openReview(false); });
+  rf.addEventListener('submit', async e => {
+    e.preventDefault();
+    const f = rf.elements, name = f.name.value.trim(), body = f.text.value.trim();
+    if (!name) { f.name.focus(); return; }
+    if (body.length < 60) {
+      hint.textContent = 'Отзыв слишком короткий — добавьте пару предложений.'; hint.classList.add('err'); f.text.focus(); return;
+    }
+    hint.textContent = hintText; hint.classList.remove('err');
+    const rate = +f.rate.value;
+    const text = `Здравствуйте, Ольга! Хочу оставить отзыв.\nИмя: ${name}\nПрограмма: ${f.prog.value}\nОценка: ${rate} из 5\nОтзыв: ${body}`;
+    $('#rTgLink').href = 'https://t.me/' + CONTACT.telegram;
+    $('#rMailLink').href = 'mailto:' + CONTACT.email + '?subject=' + encodeURIComponent('Отзыв с сайта') + '&body=' + encodeURIComponent(text);
+    $('#rOkText').textContent = 'Спасибо! Отзыв готов к отправке.';
+    rf.classList.add('sent');
+    try { await navigator.clipboard.writeText(text); $('#rOkText').textContent = 'Спасибо! Текст отзыва скопирован — вставьте его в чат.'; } catch (_) {}
   });
 
   /* intro */
